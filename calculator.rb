@@ -1,3 +1,5 @@
+require "rspec"
+
 class Calculator
   def add(number_one, number_two)
     return number_one + number_two
@@ -24,10 +26,18 @@ class Calculator
   end
 end
 
-calculator = Calculator.new
-puts "Testing the add method"
-if calculator.add(1, 1) == 2
-  puts "Test passed!"
-else
-  puts "Test failed!"
+RSpec.describe Calculator do
+  describe "#add" do
+    it "should return the sum of two numbers" do
+      calculator = Calculator.new
+      result = calculator.add(1, 3)
+      expect(result).to eq(4)
+    end
+
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.add(1, -3)
+      expect(result).to eq(-2)
+    end
+  end
 end
