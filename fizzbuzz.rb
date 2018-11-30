@@ -15,9 +15,6 @@ class Fizzbuzz
   end
 end
 
-fizzbuzz = Fizzbuzz.new
-fizzbuzz.run
-
 RSpec.describe Fizzbuzz do
   describe "#spitter" do
     it "should return 1 if given 1" do
